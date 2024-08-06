@@ -4,7 +4,7 @@ require('dotenv').config();
 const connectDB = require('./config/connectDB');
 const app = express();
 const router = require('./routes/index');
-
+const cookiesParser = require('cookie-parser');    //  for user details.js
 
 app.use(cors({
     origin : process.env.FRONTEND_URL,
@@ -12,7 +12,7 @@ app.use(cors({
 }));
 
  app.use(express.json());
-
+app.use(cookiesParser());   //  for user details.js
  
 const PORT = process.env.PORT || 8080;
 
